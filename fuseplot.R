@@ -55,7 +55,7 @@ fuse.plot <- function() {
         readline("Press [enter] to continue ...")
         message("")
         
-        names1 <- names(mat1)[-1]
+        names1 <<- names(mat1)[-1]
         
         mat1_m <- as.matrix(mat1[, -1])
         mat2_m <- as.matrix(mat2[, -1])
@@ -71,6 +71,6 @@ fuse.plot <- function() {
         message(paste("plot(fused_data, main = ", '"',"YOUR TITLE HERE",'"', ")", sep = ""))
         message("")
         message("For further informtation regarding plot modifications use ?plot")
-        message("The fused matrix can now be retrieved as 'fused_data'.")
+        message("The fused matrix can now be retrieved as 'fused_data', and labels as 'names1.")
         message("")
 }
