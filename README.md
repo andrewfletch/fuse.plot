@@ -3,7 +3,7 @@
 
 ###Description
 
-fuse.plot is a simple function used to fuse two distance matrices.  It takes no arguments, and walks a user through each step.
+fuse.plot is a simple function used to fuse two distance matrices and plot a dendogram.  It takes no arguments, and walks a user through each step.
 
 ###Usage
 
