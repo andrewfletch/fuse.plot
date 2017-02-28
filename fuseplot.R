@@ -1,23 +1,39 @@
-install.packages("analogue") #run once
 
-library(analogue) #Run every time you start a new session in R and fuse.plot is required.
+message("Welcome to fuse.plot! ")
+message("")
+message("Type fuse.plot() to get started.") 
+
 
 fuse.plot <- function() {
-        
-        message("Welcome to 'fuse.plot'. Please follow the directions as you are prompted.")
+  
+        if(library(analogue, logical.return = TRUE)==TRUE) {
+                library(analogue)
+          
+        } else {
+                install.packages("analogue")
+                library(analogue)
+          
+        }
+  
+        message("")
+        message("Please follow the directions as you are prompted.")
         readline("Press [enter] to continue ...")
+        message("")
         message("Select the first distance matrix.")
         message("Note: Only csv files will work with 'fuse.plot'.")
         readline("Press [enter] to continue ...")
+        message("")
         mat1 <- read.csv(file.choose(), head = TRUE, sep = ",")
         
         
         message("Select the second distance matrix.")
         message("Note: Only csv files will work with 'fuse.plot'.")
         readline("Press [enter] to continue ...")
+        message("")
         mat2 <- read.csv(file.choose(), head = TRUE, sep = ",")
         message("Both matrices have been successfully loaded into 'fuse.plot'.")
         readline("Press [enter] to continue ...")
+        message("")
         
         names1 <- names(mat1)[-1]
         
