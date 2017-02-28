@@ -9,10 +9,11 @@ if(library(analogue, logical.return = TRUE)==FALSE) {
         message("")
         readline("Press [enter] to continue ...")
         message("")      
-        message("R is about to install a dependent package.")
+        message("R needs to install dependent packages.")
         message("")
         readline("Press [enter] to initiate download ...")
         install.packages("analogue")
+        install.packages("phangorn")
         message("")
         message("Download complete!")
         message("Please restart R and load fuse.plot one more time.")
@@ -25,6 +26,7 @@ if(library(analogue, logical.return = TRUE)==FALSE) {
         message("Welcome back!")
         message("")
         library(analogue)
+        library(phangorn)
         message("")
         readline("Dependencies are loaded. Press [enter] to continue ...")
         message("")
@@ -59,7 +61,7 @@ fuse.plot <- function() {
         
         mat1_m <- as.matrix(mat1[, -1])
         mat2_m <- as.matrix(mat2[, -1])
-        fused <- fuse(mat1_m, mat2_m)
+        fused <<- fuse(mat1_m, mat2_m)
         
         fused_data <<- hclust(fused, method = "average")
         plot(fused_data, labels = names1, main = NA)
@@ -73,4 +75,24 @@ fuse.plot <- function() {
         message("For further informtation regarding plot modifications use ?plot")
         message("The fused matrix can now be retrieved as 'fused_data', and labels as 'names1.")
         message("")
+        message("If you would like to export a Newick file for this data, type ...")
+        message("")
+        message("fuse.export()")
+}
+
+fuse.export <- function() {
+        message("")
+        message("Your default directory is...")
+        getwd()
+        message("")
+        message("If you would like to change this location use...")
+        message(paste("setwd(", '"', "DIRECTORY PATH", '"', ")", sep = ""))
+        message("")
+        message("Please do this now and/or type proceed() to resume")
+        
+        proceed <- function() {
+                fuse_UPGMA <- upgma(fused)
+                
+        }
+        
 }
